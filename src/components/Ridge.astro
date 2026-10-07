@@ -1,0 +1,11 @@
+---
+// Layered mountain ridgelines. `from` = colour of section above (sits behind), `to` = colour below.
+const { fill = '#143f6b', back = '#6a9bd0', flip = false, class: cls = '' } = Astro.props;
+---
+<svg class={`ridge ${cls}`} style={flip ? 'transform:scaleY(-1)' : ''} viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+  <path fill={back} opacity=".55" d="M0 120 L90 70 L150 98 L260 28 L340 84 L420 60 L540 130 L650 52 L740 96 L850 20 L960 100 L1050 66 L1160 118 L1260 44 L1350 90 L1440 60 V200 H0Z"/>
+  <path fill={fill} d="M0 150 L120 112 L210 138 L330 84 L450 144 L560 106 L690 160 L800 98 L920 150 L1040 104 L1150 152 L1280 96 L1440 146 V200 H0Z"/>
+</svg>
+<style>
+  .ridge { display:block; width:100%; height:clamp(70px, 10vw, 150px); margin-bottom:-1px; }
+</style>

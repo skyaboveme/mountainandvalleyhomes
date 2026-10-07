@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import { areas } from '../../data/areas.js';
+---
+<Base title="Where I Work" description="Heber Valley, Summit, Wasatch, Utah, Salt Lake, Tooele and Davis counties: a local guide to Utah communities.">
+  <section class="page-head">
+    <div class="wrap"><p class="eyebrow">Where I work</p><h1>Know the place <em>before</em> you buy the house.</h1>
+    <p class="lead">Each Utah county has its own character. Here's a quick guide to the ones I know best.</p></div>
+  </section>
+  <section class="wrap grid">
+    {areas.map(a => (
+      <a href={`/areas/${a.slug}`} class="card">
+        <small>{a.towns}</small>
+        <h2>{a.county}</h2>
+        <p class="motto">“{a.motto}”</p>
+        <p>{a.blurb}</p>
+        <span>Explore →</span>
+      </a>
+    ))}
+  </section>
+</Base>
+<style>
+  .lead{font-size:1.2rem;max-width:34em}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;padding:3.5rem 0 5rem}
+  .card{display:block;padding:2rem;background:#fff9;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--navy)}
+  .card small{letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--clay);font-size:.72rem}
+  .card h2{font-size:1.9rem;margin-top:.4rem}
+  .motto{font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.15rem}
+  .card span{color:var(--clay);font-weight:700}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>

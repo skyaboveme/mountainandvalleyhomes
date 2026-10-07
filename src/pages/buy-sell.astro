@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+const steps = [
+  ['Talk', 'We start with a conversation about where you are headed, what matters, and what your timeline looks like.'],
+  ['Map', 'I help you compare communities and neighborhoods so the location fits your life, not just your list.'],
+  ['Climb', 'From offers and inspections to negotiations and closing, I handle the details and keep you informed.'],
+  ['Arrive', 'Keys in hand, boxes in the truck, and the excitement of a new chapter.'],
+];
+---
+<Base title="Buying & Selling" description="Guidance for first-time buyers, relocations, sellers and anyone moving on from Utah.">
+  <section class="page-head"><div class="wrap"><p class="eyebrow">Buying & selling</p><h1>One step at a time, <em>all the way up.</em></h1></div></section>
+  <section class="wrap steps">
+    {steps.map(([t, d], i) => <div><span>{i + 1}</span><h2>{t}</h2><p>{d}</p></div>)}
+  </section>
+  <section class="band">
+    <div class="wrap two">
+      <div><h3>If you're buying</h3><p>First home or fifth, I'll help you understand the market, tour with purpose and make an offer you feel good about.</p></div>
+      <div><h3>If you're selling</h3><p>We'll talk pricing, preparation and timing, then position your home so the right buyer finds it.</p></div>
+      <div><h3>If you're relocating</h3><p>Coming to Utah or leaving it, I'll make the transition smoother and less stressful.</p></div>
+    </div>
+  </section>
+  <div class="narrow cta"><a href="/contact" class="btn">Tell me your plans</a></div>
+</Base>
+<style>
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding:4rem 0}
+  .steps span{font-family:var(--serif);font-size:3.2rem;color:var(--sky);line-height:1}
+  .steps h2{font-size:1.6rem;margin-top:.3rem}
+  .band{background:var(--paper2);padding:3.5rem 0}
+  .two{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+  .cta{text-align:center;padding:3.5rem 0}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+</style>

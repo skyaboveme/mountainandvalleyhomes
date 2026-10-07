@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site.js';
+---
+<Base title="Contact" description="Contact Mountain & Valley Homes, Alicia Unruh, REALTOR® serving Heber Valley and communities across Utah.">
+  <section class="page-head"><div class="wrap"><p class="eyebrow">Contact</p><h1>Where are you <em>headed?</em></h1></div></section>
+  <section class="wrap cols c">
+    <div>
+      <p class="lead">Tell me a little about your plans and I'll reach out personally. No pressure, just a conversation.</p>
+      {site.phone && <p><b>Phone:</b> <a href={`tel:${site.phone}`}>{site.phone}</a></p>}
+      {site.email && <p><b>Email:</b> <a href={`mailto:${site.email}`}>{site.email}</a></p>}
+      <p>Hablo español con fluidez.</p>
+      <img src="/images/alicia-laugh.jpg" alt="Alicia laughing" class="photo" width="894" height="1024" loading="lazy" />
+    </div>
+    <form method="POST" action={site.formAction || '#'}>
+      <label>Name<input name="name" required /></label>
+      <label>Email<input type="email" name="email" required /></label>
+      <label>Phone<input name="phone" /></label>
+      <label>I'm interested in
+        <select name="interest"><option>Buying</option><option>Selling</option><option>Both</option><option>Relocating to Utah</option><option>Just exploring</option></select>
+      </label>
+      <label>Area(s) of interest<input name="area" placeholder="Heber, Park City, Orem…" /></label>
+      <label>Your story<textarea name="message" rows="5"></textarea></label>
+      <button class="btn" type="submit">Send</button>
+    </form>
+  </section>
+</Base>
+<style>
+  .c{padding:3.5rem 0 5rem;align-items:start}
+  .c img{max-width:300px;margin-top:1.5rem}
+  .lead{font-size:1.25rem}
+  form{background:#fff9;border:1px solid var(--line);padding:2rem;display:grid;gap:1rem;border-top:4px solid var(--navy)}
+  label{display:grid;gap:.3rem;font-weight:700;font-size:.9rem}
+  input,select,textarea{font:inherit;padding:.7rem;border:1px solid #b9ae96;background:var(--paper);border-radius:2px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--sky)}
+  button{border:0;cursor:pointer;font:inherit;font-weight:700;justify-self:start}
+</style>

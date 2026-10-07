@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import Ridge from '../../components/Ridge.astro';
+import { areas } from '../../data/areas.js';
+export function getStaticPaths() { return areas.map(a => ({ params: { slug: a.slug }, props: { a } })); }
+const { a } = Astro.props;
+---
+<Base title={`${a.county} Real Estate`} description={`${a.motto}. ${a.blurb}`}>
+  <section class="head">
+    <div class="wrap">
+      <p class="eyebrow light">{a.towns}</p>
+      <h1>{a.county}</h1>
+      <p class="motto">“{a.motto}”</p>
+    </div>
+  </section>
+  <Ridge fill="#f6f1e7" back="#6a9bd0" class="rr" />
+  <section class="wrap cols body">
+    <div>
+      <p class="lead">{a.blurb}</p>
+      {a.body.map(p => <p>{p}</p>)}
+      <a href="/contact" class="btn">Ask me about {a.county}</a>
+    </div>
+    <aside>
+      <h3>Why people love it</h3>
+      <ul>{a.good.map(g => <li>{g}</li>)}</ul>
+    </aside>
+  </section>
+  <section class="wrap more">
+    <h3>Keep exploring</h3>
+    <div>{areas.filter(x => x.slug !== a.slug).map(x => <a href={`/areas/${x.slug}`}>{x.county}</a>)}</div>
+  </section>
+</Base>
+<style>
+  .head{background:var(--navy);color:#fff;padding:5rem 0 1rem}
+  .head h1{color:#fff}
+  .eyebrow.light{color:#9cc0e6}
+  .motto{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:#cfe1f4;margin:0}
+  :global(.rr){background:var(--navy)}
+  .body{padding:3rem 0;align-items:start}
+  .lead{font-family:var(--serif);font-size:1.4rem;line-height:1.45}
+  aside{background:var(--paper2);padding:2rem;border-top:4px solid var(--clay)}
+  aside ul{padding-left:1.1rem;margin:0}
+  aside li{margin:.5rem 0}
+  .more{padding-bottom:4rem}
+  .more div{display:flex;flex-wrap:wrap;gap:.6rem}
+  .more a{padding:.4rem 1rem;border:1px solid var(--navy);text-decoration:none;border-radius:99px}
+  .more a:hover{background:var(--navy);color:#fff}
+</style>
