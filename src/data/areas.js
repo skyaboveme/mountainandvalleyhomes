@@ -11,6 +11,10 @@ export const areas = [
       'Heber City is the working heart of the valley, and Midway adds Swiss-inspired charm and hot-spring crater swims. Because I live here, I can tell you what a street sounds like in January, not just how a listing photo looks in July.',
     ],
     good: ['Small-town feel with mountain access', 'Four distinct seasons', 'Room for horses, gardens and views'],
+    photos: [
+      { src: '/images/midway-willkommen.jpg', alt: 'Hand-painted "Willkommen Midway Utah" sign below the clock on Midway Town Hall', caption: 'Willkommen! Midway Town Hall' },
+      { src: '/images/midway-kringles.jpg', alt: 'Vintage sleigh in front of Kringles, a Swiss-style Christmas shop in Midway, Utah', caption: 'Kringles on Main Street, Midway' },
+    ],
   },
   {
     slug: 'summit-county',

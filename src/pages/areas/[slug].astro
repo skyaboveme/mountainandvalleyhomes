@@ -25,6 +25,16 @@ const { a } = Astro.props;
       <ul>{a.good.map(g => <li>{g}</li>)}</ul>
     </aside>
   </section>
+  {a.photos && (
+    <section class="wrap postcards" aria-label={`Photos of ${a.county}`}>
+      {a.photos.map((p, i) => (
+        <figure class={`pc pc${i % 2}`}>
+          <img src={p.src} alt={p.alt} width="900" height="1200" loading="lazy" decoding="async" />
+          <figcaption>{p.caption}</figcaption>
+        </figure>
+      ))}
+    </section>
+  )}
   <section class="wrap more">
     <h3>Keep exploring</h3>
     <div>{areas.filter(x => x.slug !== a.slug).map(x => <a href={`/areas/${x.slug}`}>{x.county}</a>)}</div>
@@ -41,6 +51,14 @@ const { a } = Astro.props;
   aside{background:var(--paper2);padding:2rem;border-top:4px solid var(--clay)}
   aside ul{padding-left:1.1rem;margin:0}
   aside li{margin:.5rem 0}
+  .postcards{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;padding:0 0 4rem;max-width:860px}
+  .pc{margin:0;background:#fff;padding:.8rem .8rem 0;box-shadow:0 10px 30px #143f6b22;transition:transform .3s}
+  .pc0{transform:rotate(-1.5deg)}
+  .pc1{transform:rotate(1.5deg);margin-top:2rem}
+  .pc:hover{transform:rotate(0) translateY(-4px)}
+  .pc img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+  .pc figcaption{font-family:var(--serif);font-style:italic;text-align:center;padding:.8rem 0 1rem;color:var(--navy)}
+  @media(max-width:640px){.postcards{grid-template-columns:1fr}.pc1{margin-top:0}}
   .more{padding-bottom:4rem}
   .more div{display:flex;flex-wrap:wrap;gap:.6rem}
   .more a{padding:.4rem 1rem;border:1px solid var(--navy);text-decoration:none;border-radius:99px}
