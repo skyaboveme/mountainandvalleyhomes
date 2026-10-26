@@ -25,7 +25,7 @@ export const areas = [
     blurb: 'From Park City slopes to the quiet ranch country of Kamas and Oakley, Summit County has a place for almost every kind of mountain dream.',
     body: [
       'Kamas is the front door to the Uinta Mountains, with trailheads, rivers and high lakes within a short drive. Oakley carries a rodeo-town spirit, and Coalville keeps a quieter, more affordable rhythm.',
-      'Park City stands on its own: historic Main Street, world-class skiing and a market that moves differently from the rest of the state. I am a member of the Park City Board of REALTORS®, so I work these neighborhoods with local fluency.',
+      'Park City stands on its own: historic Main Street, world-class skiing and a market that moves differently from the rest of the state. I work these neighborhoods with local fluency.',
     ],
     good: ['Trailheads at the edge of town', 'Ranch and acreage options', 'Resort-town amenities nearby'],
   },
